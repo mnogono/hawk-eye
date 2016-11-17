@@ -55,6 +55,33 @@
             <artifactId>vaadin-push</artifactId>
             <version>${vaadin.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.tylproject.vaadin.addon.mongodbcontainer</groupId>
+            <artifactId>mongodbcontainer-addon</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.21</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.json</artifactId>
+            <version>1.0.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.json</groupId>
+            <artifactId>javax.json-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
         <!--
         <dependency>
@@ -63,10 +90,21 @@
             <version>5.2.4.Final</version>
         </dependency>
         -->
+
+        <!--
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongodb-driver</artifactId>
             <version>3.2.2</version>
         </dependency>
+        -->
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>vaadin-addons</id>
+            <url>http://maven.vaadin.com/vaadin-addons</url>
+        </repository>
+    </repositories>
+
 </project>

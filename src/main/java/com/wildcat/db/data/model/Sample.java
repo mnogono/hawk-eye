@@ -1,90 +1,105 @@
 package com.wildcat.db.data.model;
 
-import org.bson.Document;
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
-public class Sample extends Document {
-    /*
-    private ObjectId _id;
+public class Sample {
+    public enum Type {
+        BACKGROUND(0),
+        STANDARD(1),
+        ANALYZE(2),
+        QUALITY(3);
+
+        int value;
+
+        Type(int type) {
+            value = type;
+        }
+
+        public int getValue() {
+            return value;
+        }
+    }
+
+    @Id
+    private ObjectId id;
     private String name;
     private Date startDate;
     private Date finishDate;
-    */
-    private User operator;
+    private ObjectId projectId;
+    private ObjectId wellId;
+    private ObjectId wellboreId;
+    private double depth;
+    private Type type;
+
+    private List<ObjectId> curveIds;
+
+    public Sample() {
+        curveIds = new LinkedList<>();
+    }
 
     public String getName() {
-        //return name;
-        return getString("name");
+        return name;
     }
 
     public void setName(String name) {
-        //this.name = name;
-        put("name", name);
+        this.name = name;
     }
 
-    public User getOperator() {
-        return operator;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setOperator(User operator) {
-        this.operator = operator;
-        put("operator_id", operator.getId());
+    public Date getFinishDate() {
+        return finishDate;
+    }
+
+    public double getDepth() {
+        return depth;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setFinishDate(Date finishDate) {
+        this.finishDate = finishDate;
+    }
+
+    public void setDepth(double depth) {
+        this.depth = depth;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public void addCurve(Curve curve) {
+        if (!curveIds.contains(curve.getId())) {
+            curveIds.add(curve.getId());
+        }
     }
 
     public ObjectId getId() {
-        //return _id;
-        return getObjectId("_id");
+        return id;
     }
 
-    /*
     public void setId(ObjectId id) {
-        this._id = id;
+        this.id = id;
     }
-    */
-}
 
-/**
- * exec add_col 'sample','vdb_id','[int] IDENTITY (1, 1) NOT NULL'
- exec add_col 'sample','vdb_rec','[int] NULL'
- exec add_col 'sample','vdb_cdate','[int] NULL'
- exec add_col 'sample','vdb_edate','[int] NULL'
- exec add_col 'sample','vdb_sid','[int] NULL'
- exec add_col 'sample','sample_id','[varchar] (255) NULL'
- exec add_col 'sample','sample_date','[int] NULL'
- exec add_col 'sample','sample_time','[int] NULL'
- exec add_col 'sample','sample_operator','[varchar] (50) NULL'
- exec add_col 'sample','sample_project_id','[varchar] (255) NULL'
- exec add_col 'sample','sample_well_id','[varchar] (255) NULL'
- exec add_col 'sample','sample_welbore_id','[varchar] (255) NULL'
- exec add_col 'sample','sample_method_id','[int] NULL'
- exec add_col 'sample','sample_sequence_id','[int] NULL'
- exec add_col 'sample','sample_depth','[float] NULL'
- exec add_col 'sample','sample_type','[int] NULL'
- exec add_col 'sample','sample_flag','[int] NULL'
- exec add_col 'sample','sample_comment','[text] NULL'
- exec add_col 'sample','sample_status','[int] NULL'
- exec add_col 'sample','sample_pos','[int] NULL'
- exec add_col 'sample','sample_weight','[float] NULL'
- exec add_col 'sample','sample_calibration_id','[int] NULL'
- exec add_col 'sample','sample_quality_result','[int] NULL'
- exec add_col 'sample','uid','varchar(50) NULL CONSTRAINT [DF_sample_uid]  DEFAULT (newid())'
- exec add_col 'sample','sample_data_format','[int] NULL'
- exec add_col 'sample','sample_data_file_path','[varchar] (255) NULL'
- exec add_col 'sample','sample_instrument_name','[varchar] (255) NULL'
- exec add_col 'sample','sample_project_link','[int] NULL'
- exec add_col 'sample','sample_well_link','[int] NULL'
- exec add_col 'sample','sample_wellbore_link','[int] NULL'
- exec add_col 'sample','sample_sequence_order','[int] NULL'
- exec add_col 'sample','sample_date_finish','[int] NULL'
- exec add_col 'sample','sample_time_finish','[int] NULL'
- exec add_col 'sample','sample_method_multiramp','[text] NULL'
- exec add_col 'sample','sample_method_data','[text] NULL'
- exec add_col 'sample','sample_flows_data','[text] NULL'
- exec add_col 'sample','sample_fid_temperature','[float] NULL'
- exec add_col 'sample','sample_style_id','[int] NULL'
- exec add_col 'sample','sample_hawk_version','[varchar] (255) NULL'
- exec add_col 'sample','sample_is_ir_rev_b','[int] NULL'
- exec add_col 'sample','sample_zones_data','[text] NULL'
- */
+    public void addCurves(List<Curve> curves) {
+        curveIds.clear();
+        for (Curve curve : curves) {
+            curveIds.add(curve.getId());
+        }
+    }
+}
