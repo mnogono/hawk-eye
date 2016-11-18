@@ -64,23 +64,9 @@ public class DashboardUI extends HawkBaseUI {
         SampleGridLayout sampleGridLayout = new SampleGridLayout();
         SampleChartLayout sampleChartLayout = new SampleChartLayout();
 
-        sampleGridLayout.addListener(sampleChartLayout);
+        //sampleGridLayout.addListener(sampleChartLayout);
 
-        AnyVerticalLayout layout = new AnyVerticalLayout() {
-            @Override
-            public void create() {
-                for (int i = 0; i < getComponentCount(); ++i) {
-                    ((AnyLayout) getComponent(i)).create();
-                }
-            }
-
-            @Override
-            public void update() {
-                for (int i = 0; i < getComponentCount(); ++i) {
-                    ((AnyLayout) getComponent(i)).update();
-                }
-            }
-        };
+        AnyVerticalLayout layout = new AnyVerticalLayout();
         layout.addComponent(sampleGridLayout);
         layout.addComponent(sampleChartLayout);
 
