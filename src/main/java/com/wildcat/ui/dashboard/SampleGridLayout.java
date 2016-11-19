@@ -1,6 +1,7 @@
 package com.wildcat.ui.dashboard;
 
 import com.event.driven.util.MessageDispatcher;
+import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.*;
 import com.wildcat.db.data.model.Sample;
 import com.wildcat.db.mongodb.DbClient;
@@ -20,7 +21,7 @@ public class SampleGridLayout extends AnyVerticalLayout {
     private Button buttonSampleDelete;
 
     @Override
-    public void create() {
+    public void create(VaadinRequest vaadinRequest) {
         sampleGrid = new SampleGrid();
         sampleGrid.addValueChangeListener(event -> {
             ObjectId id = (ObjectId) event.getProperty().getValue();
@@ -32,11 +33,12 @@ public class SampleGridLayout extends AnyVerticalLayout {
             MessageDispatcher.getInstance().dispatch(new EventDashboardSampleSelect(sample));
         });
 
-        sampleGrid.create();
+        sampleGrid.create(vaadinRequest);
 
 
         buttonSampleImport = new Button("Import", (event) -> {
-
+            LoginForm loginForm = new LoginForm();
+            getUI().addWindow(new Window("LOGIN", loginForm));
         });
         buttonSampleImport.setImmediate(true);
 
@@ -75,7 +77,7 @@ public class SampleGridLayout extends AnyVerticalLayout {
     }
 
     @Override
-    public void update() {
-        sampleGrid.update();
+    public void update(VaadinRequest vaadinRequest) {
+        sampleGrid.update(vaadinRequest);
     }
 }

@@ -3,6 +3,7 @@ package mongodb.db.gnerate;
 import com.mongodb.DBCollection;
 
 import com.vaadin.data.util.BeanItem;
+import com.wildcat.db.active.record.ActiveRecordFactory;
 import com.wildcat.db.data.model.Curve;
 import com.wildcat.db.data.model.Sample;
 //import com.wildcat.db.data.model.User;
@@ -11,6 +12,8 @@ import com.wildcat.db.data.model.Sample;
 //import com.wildcat.db.data.model.curve.type.Fid;
 //import com.wildcat.db.data.model.curve.type.Time;
 import com.wildcat.db.mongodb.DbClient;
+import com.wildcat.db.mongodb.active.record.CurveActiveRecord;
+import com.wildcat.db.mongodb.active.record.SampleActiveRecord;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -27,10 +30,23 @@ import java.util.List;
 
 public class CreateMongoDB {
     public static void main(String[] args) throws UnknownHostException {
+        MongoOperations operations = DbClient.getOperations();
+        operations.dropCollection(Sample.class);
+        operations.dropCollection(Curve.class);
 
-        DbClient.get();
+        ActiveRecordFactory activeRecordFactory = ActiveRecordFactory.getInstance();
+        activeRecordFactory.registerActiveRecord(Sample.class, new SampleActiveRecord());
+        activeRecordFactory.registerActiveRecord(Curve.class, new CurveActiveRecord());
 
-        MongoOperations mongoOperations = new MongoTemplate(DbClient.get(), DbClient.dbName);
+        Sample sample = new Sample();
+        sample.setName("WTA");
+        sample.setDepth(1000.0);
+        sample.setType(Sample.Type.BACKGROUND);
+        ActiveRecordFactory.getInstance().getActiveRecord(Sample.class).wrap(sample).save();
+
+//        DbClient.get();
+//
+//        MongoOperations mongoOperations = new MongoTemplate(DbClient.get(), DbClient.dbName);
 
         //create some curves
 
@@ -43,8 +59,11 @@ public class CreateMongoDB {
         curve.setType(Curve.Type.TIME);
         curve.setKind(Curve.Kind.ORIGINAL);
         curve.setData(data);
+        curve.setSampleId(sample.getId());
 
-        mongoOperations.save(curve);
+        ActiveRecordFactory.getInstance().getActiveRecord(Curve.class).wrap(curve).save();
+
+//        mongoOperations.save(curve);
 
         /*
         MongoContainer<Sample> container = MongoContainer.Builder
@@ -52,13 +71,10 @@ public class CreateMongoDB {
                 .withProperty("name", String.class)
                 .build();
         */
-        Sample sample = new Sample();
-        sample.setName("WTA");
-        sample.setDepth(1000.0);
-        sample.setType(Sample.Type.BACKGROUND);
-        sample.addCurve(curve);
 
-        mongoOperations.save(sample);
+        //sample.addCurve(curve);
+
+        //mongoOperations.save(sample);
 
 
         //ObjectId id = container.addEntity(sample);

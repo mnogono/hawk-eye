@@ -36,10 +36,10 @@ public class Sample {
     private double depth;
     private Type type;
 
-    private List<ObjectId> curveIds;
+    //private List<ObjectId> curveIds;
 
     public Sample() {
-        curveIds = new LinkedList<>();
+        //curveIds = new LinkedList<>();
     }
 
     public String getName() {
@@ -82,11 +82,13 @@ public class Sample {
         this.type = type;
     }
 
+    /*
     public void addCurve(Curve curve) {
         if (!curveIds.contains(curve.getId())) {
             curveIds.add(curve.getId());
         }
     }
+    */
 
     public ObjectId getId() {
         return id;
@@ -96,10 +98,18 @@ public class Sample {
         this.id = id;
     }
 
+    /*
     public void addCurves(List<Curve> curves) {
         curveIds.clear();
         for (Curve curve : curves) {
             curveIds.add(curve.getId());
         }
     }
+    */
+
+    /*
+    public List<ObjectId> getCurveIds() {
+        return curveIds;
+    }
+    */
 }

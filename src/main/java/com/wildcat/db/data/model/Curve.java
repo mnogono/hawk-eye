@@ -83,6 +83,7 @@ public class Curve {
     private UnitFactor unitFactor;
     private List<Double> data;
     private Kind kind;
+    private ObjectId sampleId;
 
     public void setType(Type type) {
         this.type = type;
@@ -130,5 +131,13 @@ public class Curve {
 
     public void setId(ObjectId id) {
         this.id = id;
+    }
+
+    public ObjectId getSampleId() {
+        return sampleId;
+    }
+
+    public void setSampleId(ObjectId sampleId) {
+        this.sampleId = sampleId;
     }
 }

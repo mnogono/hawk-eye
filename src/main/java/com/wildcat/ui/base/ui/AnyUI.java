@@ -1,7 +1,9 @@
 package com.wildcat.ui.base.ui;
 
-public interface AnyUI {
-    void create();
+import com.vaadin.server.VaadinRequest;
 
-    void update();
+public interface AnyUI {
+    void create(VaadinRequest vaadinRequest);
+
+    void update(VaadinRequest vaadinRequest);
 }

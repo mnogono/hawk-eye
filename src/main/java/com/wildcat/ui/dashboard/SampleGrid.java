@@ -1,5 +1,6 @@
 package com.wildcat.ui.dashboard;
 
+import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Table;
 import com.wildcat.db.data.model.Sample;
 import com.wildcat.db.mongodb.DbClient;
@@ -22,7 +23,7 @@ public class SampleGrid extends Table implements AnyUI {
     }
 
     @Override
-    public void create() {
+    public void create(VaadinRequest vaadinRequest) {
         setSelectable(true);
         setSizeFull();
 
@@ -36,7 +37,7 @@ public class SampleGrid extends Table implements AnyUI {
     }
 
     @Override
-    public void update() {
+    public void update(VaadinRequest vaadinRequest) {
         container.refresh();
     }
 }

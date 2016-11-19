@@ -1,5 +1,6 @@
 package com.wildcat.ui.base.ui;
 
+import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.wildcat.ui.base.layout.AnyLayout;
@@ -18,15 +19,15 @@ public abstract class BaseUI extends UI implements AnyUI {
     /**
      * main function to start build UI
      */
-    public void create() {
-        header = createHeader();
-        header.create();
+    public void create(VaadinRequest vaadinRequest) {
+        header = createHeader(vaadinRequest);
+        header.create(vaadinRequest);
 
-        content = createContent();
-        content.create();
+        content = createContent(vaadinRequest);
+        content.create(vaadinRequest);
 
-        footer = createFooter();
-        footer.create();
+        footer = createFooter(vaadinRequest);
+        footer.create(vaadinRequest);
 
         VerticalLayout verticalContent = new VerticalLayout();
         verticalContent.setSizeFull();
@@ -41,15 +42,15 @@ public abstract class BaseUI extends UI implements AnyUI {
     }
 
     @Override
-    public void update() {
-        header.update();
-        content.update();
-        footer.update();
+    public void update(VaadinRequest vaadinRequest) {
+        header.update(vaadinRequest);
+        content.update(vaadinRequest);
+        footer.update(vaadinRequest);
     }
 
-    public abstract AnyLayout createHeader();
+    public abstract AnyLayout createHeader(VaadinRequest vaadinRequest);
 
-    public abstract AnyLayout createContent();
+    public abstract AnyLayout createContent(VaadinRequest vaadinRequest);
 
-    public abstract AnyLayout createFooter();
+    public abstract AnyLayout createFooter(VaadinRequest vaadinRequest);
 }

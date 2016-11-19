@@ -34,7 +34,16 @@ public class ImporterSample extends AbstractImporterData {
                         break;
                     }
 
-                    List<Curve> curves = new LinkedList<>();
+                    Sample sample = new Sample();
+
+                    //read some base sample data
+                    sample.setName(json.getString("sample_id"));
+                    sample.setDepth(json.getInt("sample_depth", 0));
+                    //sample.setDepth(json.getJsonNumber("sample_depth").doubleValue());
+
+                    persistentLayer.save(sample);
+
+                    //List<Curve> curves = new LinkedList<>();
 
                     //read curves
                     JsonArray jsonCurves = json.getJsonArray("curves");
@@ -54,21 +63,12 @@ public class ImporterSample extends AbstractImporterData {
                         curve.setKind(Curve.Kind.fromValue(jsonCurve.getJsonNumber("curve_mode").intValue()));
                         curve.setType(Curve.Type.fromValue(jsonCurve.getJsonNumber("curve_type").intValue()));
                         curve.setData(data);
+                        curve.setSampleId(sample.getId());
 
-                        curves.add(curve);
+                        //curves.add(curve);
 
                         persistentLayer.save(curve);
                     }
-
-                    Sample sample = new Sample();
-
-                    //read some base sample data
-                    sample.setName(json.getString("sample_id"));
-                    sample.setDepth(json.getJsonNumber("sample_depth").doubleValue());
-                    sample.addCurves(curves);
-
-                    persistentLayer.save(sample);
-
                     break;
                 } while (true);
             }

@@ -59,7 +59,7 @@ public class DashboardUI extends HawkBaseUI {
 //    }
 
     @Override
-    public AnyLayout createContent() {
+    public AnyLayout createContent(VaadinRequest vaadinRequest) {
 
         SampleGridLayout sampleGridLayout = new SampleGridLayout();
         SampleChartLayout sampleChartLayout = new SampleChartLayout();

@@ -8,22 +8,22 @@ import com.wildcat.ui.hawk.header.HawkHeader;
 
 public abstract class HawkBaseUI extends BaseUI {
     @Override
-    public AnyLayout createHeader() {
+    public AnyLayout createHeader(VaadinRequest vaadinRequest) {
         return new HawkHeader();
     }
 
     @Override
-    public AnyLayout createFooter() {
+    public AnyLayout createFooter(VaadinRequest vaadinRequest) {
         return new HawkFooter();
     }
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-        create();
+        create(vaadinRequest);
     }
 
     @Override
-    protected void refresh(VaadinRequest request) {
-        update();
+    protected void refresh(VaadinRequest vaadinRequest) {
+        update(vaadinRequest);
     }
 }
