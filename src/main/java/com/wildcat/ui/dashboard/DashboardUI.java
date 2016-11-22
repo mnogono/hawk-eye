@@ -9,6 +9,8 @@ import com.wildcat.ui.base.layout.AnyHorizontalLayout;
 import com.wildcat.ui.base.layout.AnyLayout;
 import com.wildcat.ui.base.layout.AnyVerticalLayout;
 import com.wildcat.ui.base.ui.BaseUI;
+import com.wildcat.ui.component.chart.ChartComponent;
+import com.wildcat.ui.component.chart.d3chart.D3ChartComponent;
 import com.wildcat.ui.hawk.base.ui.HawkBaseUI;
 
 import javax.servlet.annotation.HttpConstraint;
@@ -69,6 +71,9 @@ public class DashboardUI extends HawkBaseUI {
         AnyVerticalLayout layout = new AnyVerticalLayout();
         layout.addComponent(sampleGridLayout);
         layout.addComponent(sampleChartLayout);
+
+        ChartComponent chartComponent = new D3ChartComponent();
+        layout.addComponent(chartComponent);
 
         //sampleGridLayout.create();
 

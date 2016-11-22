@@ -70,8 +70,9 @@ public class SampleChartLayout extends AnyVerticalLayout {
 
             imageLayout.removeAllComponents();
 
-            StreamResource streamResource = new StreamResource(new SampleImageSource(sample), "sample image");
-            image = new Image("sample image", streamResource);
+            String uuid = UUID.randomUUID().toString();
+            StreamResource streamResource = new StreamResource(new SampleImageSource(sample), uuid);
+            image = new Image(uuid, streamResource);
             image.setImmediate(true);
             //image.markAsDirty();
             imageLayout.addComponent(image);

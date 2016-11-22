@@ -35,4 +35,9 @@ public class SampleActiveRecord extends MonodbDocumentActiveRecord<Sample> {
         query.addCriteria(Criteria.where("kind").is(kind));
         return operations.findOne(query, Curve.class);
     }
+
+    @Override
+    public SampleActiveRecord wrap(Sample record) {
+        return (SampleActiveRecord) super.wrap(record);
+    }
 }

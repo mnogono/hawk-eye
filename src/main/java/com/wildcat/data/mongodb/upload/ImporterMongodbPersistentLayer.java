@@ -9,15 +9,5 @@ public class ImporterMongodbPersistentLayer implements ImporterPersistentLayer {
     public <T> boolean save(T data) {
         ActiveRecordFactory.getInstance().getActiveRecord(data.getClass()).wrap(data).save();
         return true;
-        /*
-        try {
-            DbClient.getOperations().save(data);
-            return true;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-        */
     }
 }

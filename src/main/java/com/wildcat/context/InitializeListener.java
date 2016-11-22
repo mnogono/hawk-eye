@@ -24,9 +24,10 @@ public class InitializeListener implements ServletContextListener {
         }
 
         //register active records
-        ActiveRecordFactory.getInstance().registerActiveRecord(Sample.class, new SampleActiveRecord());
-        ActiveRecordFactory.getInstance().registerActiveRecord(Curve.class, new CurveActiveRecord());
-        ActiveRecordFactory.getInstance().setDefaultActiveRecord(new MonodbDocumentActiveRecord<>());
+        ActiveRecordFactory activeRecordFactory = ActiveRecordFactory.getInstance();
+        activeRecordFactory.registerActiveRecord(Sample.class, new SampleActiveRecord());
+        activeRecordFactory.registerActiveRecord(Curve.class, new CurveActiveRecord());
+        activeRecordFactory.setDefaultActiveRecord(new MonodbDocumentActiveRecord<>());
     }
 
     @Override

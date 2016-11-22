@@ -50,10 +50,10 @@ public class SampleImageSource implements StreamResource.StreamSource {
         }
 
         // Create a XYChart object of size 250 x 250 pixels
-        XYChart c = new XYChart(250, 250);
+        XYChart c = new XYChart(650, 450);
 
         // Set the plotarea at (30, 20) and of size 200 x 200 pixels
-        c.setPlotArea(30, 20, 200, 200);
+        c.setPlotArea(50, 50, 600, 400);
 
         // Add a line chart layer using the given data
         c.addLineLayer(data);

@@ -26,6 +26,7 @@ public class SampleGrid extends Table implements AnyUI {
     public void create(VaadinRequest vaadinRequest) {
         setSelectable(true);
         setSizeFull();
+        setRowHeaderMode(RowHeaderMode.INDEX);
 
         try {
             container = mongoBuilder().build();
