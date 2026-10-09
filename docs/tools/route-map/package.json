@@ -1,0 +1,14 @@
+{
+  "name": "route-map",
+  "private": true,
+  "type": "module",
+  "description": "Generates images/route-map.png for roadmap.md",
+  "scripts": {
+    "build": "node build-map.mjs && magick -density 144 ../../images/route-map.svg ../../images/route-map.png"
+  },
+  "dependencies": {
+    "d3-geo": "3.1.1",
+    "topojson-client": "3.1.0",
+    "world-atlas": "2.0.2"
+  }
+}
