@@ -13,6 +13,8 @@ HAWK-EYE Phoenix is a web-based application built on the experience of the curre
 - **Higher bus factor.** A widely used programming language and technology stack: Java has been in use since 1995, and many experienced developers are available.
 - **Modern user interface** built on current HTML and CSS capabilities.
 - **Access from a web browser.** HAWK-EYE is available from any web browser.
+- **Multi-user network application.** Several users can work with HAWK-EYE at the same time from different computers on the local network, and all of them see the same live data from the instrument.
+- **Data available by URL.** Every page — a sample, a measurement, a report — has its own link that can be bookmarked or sent to a colleague, who opens exactly the same data.
 - **Native multi-threading** provided by the Java platform.
 - **Ready for Linux.** The application targets Windows, but the whole technology stack runs on Linux as well, so a Linux version can be added if needed.
 - **One application** for instrument control and the user interface. The current software runs them as two separate processes; joining them significantly reduces internal complexity.
@@ -43,7 +45,7 @@ Java 25 (LTS), Spring Boot with embedded Tomcat, Thymeleaf, htmx, Bootstrap 5.3,
 
 | Module | Release |
 |---|---|
-| Authorization: user login | 0.1 Yekaterinburg |
+| User accounts, anonymous access by default | 0.1 Yekaterinburg |
 | Manual control and instrument configuration | 0.1 Yekaterinburg |
 | Live instrument data | 0.1 Yekaterinburg |
 | Crucible tests | 0.1 Yekaterinburg |
@@ -71,6 +73,7 @@ Java 25 (LTS), Spring Boot with embedded Tomcat, Thymeleaf, htmx, Bootstrap 5.3,
 | Zone editor on charts | 1.0 Houston |
 | Chart style preferences | 1.0 Houston |
 | Sample table column editor | 1.0 Houston |
+| Authorization: user login | 1.0 Houston |
 
 # Road map: from Yekaterinburg to Houston
 
@@ -112,7 +115,7 @@ To compare results with the current HAWK-EYE, we will ask you for reference data
 
 **Along the way**
 
-- **Application framework and user login.** The basis of the new application; users enter their credentials to access it.
+- **Application framework and user accounts.** The basis of the new application. User accounts are part of the design from the start; by default everyone works as an anonymous user, without entering credentials.
 - **Instrument communication layer.** A new implementation of the Sparx API — the HTTP-based protocol used to talk to the instrument controller board — with drivers for every instrument unit: oven and Watlow temperature controllers, pedestal, autoloader, gas flows and thermocouples. This is the engine every later release relies on.
 - **Manual control.** Operate the instrument by hand from a web browser.
 - **Live instrument data.** A screen with current readings: temperatures, gas flows and sensor status.
@@ -214,7 +217,8 @@ To compare results with the current HAWK-EYE, we will ask you for reference data
 - **Zone editor.** Adjust zone boundaries on the chart by dragging them.
 - **Chart style preferences.** Users set up the colours, lines and other display options of the charts.
 - **Sample table columns.** Users choose which columns the sample table shows and in what order.
-- **Automated tests.** Report generation in every format, export followed by import with the data checked to be identical, editing samples and storing user preferences.
+- **User login.** Login can be turned on in the settings: users then enter their credentials to access the application. By default anonymous access stays on.
+- **Automated tests.** Report generation in every format, export followed by import with the data checked to be identical, editing samples, storing user preferences and user login.
 
 **What's in this release.** The final version of HAWK-EYE Phoenix, adjusted to the needs of each user.
 
