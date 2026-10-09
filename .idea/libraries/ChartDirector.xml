@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="ChartDirector">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/ChartDirector.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
