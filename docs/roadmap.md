@@ -82,17 +82,16 @@ Java 25 (LTS), Spring Boot with embedded Tomcat, Thymeleaf, htmx, Bootstrap 5.3,
 
 ![The route from Yekaterinburg to Houston: every stop is a release](images/route-map.png){width=100%}
 
-| Version | Codename | Theme | Duration |
-|---|---|---|---|
-| 0.1 | Yekaterinburg | The instrument in your browser | ~14 weeks |
-| 0.2 | Moscow | Your data moves in | ~13 weeks |
-| 0.3 | Berlin | First analyses | ~13.5 weeks |
-| 0.4 | Lisbon | Results | ~14 weeks |
-| 0.5 | New York | All methods, settings in order | ~13.5 weeks |
-| 1.0 | Houston | Reports and personal preferences | ~13 weeks |
-| | | **Total** | **~81 weeks** |
+| Version | Codename | Theme |
+|---|---|---|
+| 0.1 | Yekaterinburg | The instrument in your browser |
+| 0.2 | Moscow | Your data moves in |
+| 0.3 | Berlin | First analyses |
+| 0.4 | Lisbon | Results |
+| 0.5 | New York | All methods, settings in order |
+| 1.0 | Houston | Reports and personal preferences |
 
-Durations are calendar weeks for a team of one developer; the whole route takes about 19 months. Each release includes automated testing, delivery, and changes based on your feedback on the previous release.
+Each release includes automated testing, delivery, and changes based on your feedback on the previous release.
 
 ## Quality assurance
 
@@ -108,7 +107,7 @@ Testing is part of every release, not a separate phase at the end. A release is 
 
 To compare results with the current HAWK-EYE, we will ask you for reference data sets: samples with results calculated by the current software.
 
-## Version 0.1 "Yekaterinburg" — The instrument in your browser (~14 weeks)
+## Version 0.1 "Yekaterinburg" — The instrument in your browser
 
 *“Give me a place to stand, and I will move the earth.”* — Archimedes
 
@@ -129,7 +128,7 @@ To compare results with the current HAWK-EYE, we will ask you for reference data
 
 **Not included yet.** Your existing data, samples, analyses, methods and reports.
 
-## Version 0.2 "Moscow" — Your data moves in (~13 weeks)
+## Version 0.2 "Moscow" — Your data moves in
 
 *“It is a capital mistake to theorize before one has data.”* — Arthur Conan Doyle, Sherlock Holmes in “A Scandal in Bohemia”
 
@@ -148,7 +147,7 @@ To compare results with the current HAWK-EYE, we will ask you for reference data
 
 **Not included yet.** Running analyses, editing data, calculations and reports.
 
-## Version 0.3 "Berlin" — First analyses (~13.5 weeks)
+## Version 0.3 "Berlin" — First analyses
 
 *“When you can measure what you are speaking about, and express it in numbers, you know something about it.”* — Lord Kelvin
 
@@ -167,7 +166,7 @@ To compare results with the current HAWK-EYE, we will ask you for reference data
 
 **Not included yet.** Calibration and calculation of results, other method types, reports.
 
-## Version 0.4 "Lisbon" — Results (~14 weeks)
+## Version 0.4 "Lisbon" — Results
 
 *“The first principle is that you must not fool yourself — and you are the easiest person to fool.”* — Richard Feynman
 
@@ -187,7 +186,7 @@ To compare results with the current HAWK-EYE, we will ask you for reference data
 
 **Not included yet.** Other method types, system settings, reports.
 
-## Version 0.5 "New York" — All methods, settings in order (~13.5 weeks)
+## Version 0.5 "New York" — All methods, settings in order
 
 *“Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.”* — Antoine de Saint-Exupéry
 
@@ -205,7 +204,7 @@ To compare results with the current HAWK-EYE, we will ask you for reference data
 
 **Not included yet.** Reports, import/export, personal preferences.
 
-## Version 1.0 "Houston" — Reports and personal preferences (~13 weeks)
+## Version 1.0 "Houston" — Reports and personal preferences
 
 *“Design is not just what it looks like and feels like. Design is how it works.”* — Steve Jobs
 
