@@ -50,6 +50,7 @@ Java 25 (LTS), Spring Boot with embedded Tomcat, Thymeleaf, htmx, Bootstrap 5.3,
 | Live instrument data | 0.1 Yekaterinburg |
 | Crucible tests | 0.1 Yekaterinburg |
 | Inno Setup installer | 0.1 Yekaterinburg |
+| New user interface: main building blocks agreed with you | 0.2 Moscow |
 | Data migration tool | 0.2 Moscow |
 | Sample table: on-demand loading, filtering, sorting | 0.2 Moscow |
 | Sample chart viewer: curves on/off, raw/calibrated, bottom chart | 0.2 Moscow |
@@ -109,7 +110,7 @@ To compare results with the current HAWK-EYE, we will ask you for reference data
 
 ## Version 0.1 "Yekaterinburg" — The instrument in your browser (~14 weeks)
 
-*Before a long journey, you check the vehicle, pack the essentials and take a test drive around town. We don't leave the city yet — we make sure the car is ready for the road.*
+*“Give me a place to stand, and I will move the earth.”* — Archimedes
 
 **Goal.** Prove that the new web application controls the HAWK instrument directly, without the current desktop software.
 
@@ -124,31 +125,32 @@ To compare results with the current HAWK-EYE, we will ask you for reference data
 - **Installer.** A single executable file that installs the application on a Windows computer. PostgreSQL 18 is installed separately, following our step-by-step guide. Updates work the same way: a new installer is run over the existing installation — settings and data are kept, and the database structure is updated automatically after a backup is made.
 - **Automated tests.** Test infrastructure for the whole project; tests of instrument communication against the Sparx emulator, of protocol message serialization and of instrument settings storage.
 
-**What's in this release.** Install the application yourself and operate the instrument on the Sparx instrument emulator: manual control, live data, instrument settings and crucible tests. Testing on a real instrument is planned for later releases.
+**What's in this release.** Install the application yourself and operate your HAWK instrument from a web browser: manual control, live data, instrument settings and crucible tests. The Sparx instrument emulator is a developer tool, used for automated tests.
 
 **Not included yet.** Your existing data, samples, analyses, methods and reports.
 
 ## Version 0.2 "Moscow" — Your data moves in (~13 weeks)
 
-*The first leg is the longest one on land — about 1,800 km of road. Before setting off, we move all the luggage into a new, larger trailer with no weight limit, and pack it so that everything is easy to find. At the first big city we unpack and check that nothing was lost on the way.*
+*“It is a capital mistake to theorize before one has data.”* — Arthur Conan Doyle, Sherlock Holmes in “A Scandal in Bohemia”
 
-**Goal.** Move your existing HAWK-EYE data to the new database and let you browse it in a web browser.
+**Goal.** Move your existing HAWK-EYE data to the new database, let you browse it in a web browser, and agree with you on the new user interface.
 
 **Along the way**
 
 - **New database structure.** Settings and dictionaries currently stored as packed data become regular database tables, and calibration data storage is simplified and made consistent.
 - **Data migration tool.** A standalone tool, run by the operator, that transfers an existing HAWK-EYE database into the new structure, so all accumulated samples, methods and calibrations come along.
+- **New user interface.** We discuss the new user interface with you and fix its main building blocks: page layout, navigation, the main screens and their controls. The sample table and the sample chart viewer of this release are the first screens built on them.
 - **Sample table.** Browse all samples in the database, with filtering and sorting. The table loads data on demand, so it stays fast even with very large databases.
 - **Sample chart viewer.** View the acquisition curves of any recorded sample: switch individual curves on and off, switch between raw and calibrated data, and use the bottom chart.
 - **Automated tests.** Migration tests on copies of real databases, tests of reading and writing all migrated records and of curve data serialization.
 
-**What's in this release.** Transfer a copy of your own database with the migration tool, then browse your samples and their curves in the new application and check that everything has arrived.
+**What's in this release.** Transfer a copy of your own database with the migration tool, then browse your samples and their curves in the new application and check that everything has arrived. The main building blocks of the new user interface are agreed with you.
 
 **Not included yet.** Running analyses, editing data, calculations and reports.
 
 ## Version 0.3 "Berlin" — First analyses (~13.5 weeks)
 
-*So far the car has carried only luggage. On the way to Berlin it takes its first passengers — first one at a time, then a full bus running on a timetable.*
+*“When you can measure what you are speaking about, and express it in numbers, you know something about it.”* — Lord Kelvin
 
 **Goal.** Run analyses on the instrument from the new application — from a single sample to automated sequences.
 
@@ -167,7 +169,7 @@ To compare results with the current HAWK-EYE, we will ask you for reference data
 
 ## Version 0.4 "Lisbon" — Results (~14 weeks)
 
-*Lisbon is the westernmost point of Europe. Before crossing the ocean, the vehicle must be fully self-sufficient: everything needed for the journey has to be on board.*
+*“The first principle is that you must not fool yourself — and you are the easiest person to fool.”* — Richard Feynman
 
 **Goal.** Complete the working cycle: from collected data to calibrated, calculated and quality-checked results.
 
@@ -187,7 +189,7 @@ To compare results with the current HAWK-EYE, we will ask you for reference data
 
 ## Version 0.5 "New York" — All methods, settings in order (~13.5 weeks)
 
-*On a ship every kilogram counts. Before boarding, we unpack the luggage, leave behind what is no longer needed and repack the rest neatly. And everyone who travels with us gets on board.*
+*“Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.”* — Antoine de Saint-Exupéry
 
 **Goal.** Support every HAWK method type and bring the system settings in order.
 
@@ -205,7 +207,7 @@ To compare results with the current HAWK-EYE, we will ask you for reference data
 
 ## Version 1.0 "Houston" — Reports and personal preferences (~13 weeks)
 
-*We have arrived at your door. Now it's time to unpack and arrange everything to your taste.*
+*“Design is not just what it looks like and feels like. Design is how it works.”* — Steve Jobs
 
 **Goal.** Deliver the final pieces of the daily workflow and let every user tailor the application to their own way of working.
 
